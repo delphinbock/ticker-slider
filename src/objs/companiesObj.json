@@ -1,72 +1,72 @@
 [
   {
     "name": "microsoft",
-    "symbol": "msft",
-    "current": 339.51,
-    "prev": 330,
+    "isin": "msft",
+    "currentPrice": 339.51,
+    "prevPrice": 330,
     "currency": "$"
   },
   {
     "name": "rivian",
-    "symbol": "rivn",
-    "current": 172.01,
-    "prev": 160,
+    "isin": "rivn",
+    "currentPrice": 172.01,
+    "prevPrice": 160,
     "currency": "$"
   },
   {
     "name": "atari",
-    "symbol": "ata",
-    "current": 0.45,
-    "prev": 0.3,
+    "isin": "ata",
+    "currentPrice": 0.45,
+    "prevPrice": 0.3,
     "currency": "€"
   },
   {
     "name": "bnp",
-    "symbol": "bnp",
-    "current": 60.29,
-    "prev": 62,
+    "isin": "bnp",
+    "currentPrice": 60.29,
+    "prevPrice": 62,
     "currency": "€"
   },
   {
     "name": "hertz",
-    "symbol": "htzww",
-    "current": 15.25,
-    "prev": 10,
+    "isin": "htzww",
+    "currentPrice": 15.25,
+    "prevPrice": 10,
     "currency": "$"
   },
   {
     "name": "american water works company",
-    "symbol": "awk",
-    "current": 170.74,
-    "prev": 168,
+    "isin": "awk",
+    "currentPrice": 170.74,
+    "prevPrice": 168,
     "currency": "$"
   },
   {
     "name": "roper",
-    "symbol": "rop",
-    "current": 492.29,
-    "prev": 482,
+    "isin": "rop",
+    "currentPrice": 492.29,
+    "prevPrice": 482,
     "currency": "$"
   },
   {
     "name": "home depot",
-    "symbol": "hd",
-    "current": 392.33,
-    "prev": 390,
+    "isin": "hd",
+    "currentPrice": 392.33,
+    "prevPrice": 390,
     "currency": "$"
   },
   {
     "name": "jpmorgan chase",
-    "symbol": "JPM",
-    "current": 165.36,
-    "prev": 168,
+    "isin": "JPM",
+    "currentPrice": 165.36,
+    "prevPrice": 168,
     "currency": "$"
   },
   {
     "name": "3m",
-    "symbol": "MMM",
-    "current": 183.37,
-    "prev": 183,
+    "isin": "MMM",
+    "currentPrice": 183.37,
+    "prevPrice": 183,
     "currency": "$"
   }
 ]

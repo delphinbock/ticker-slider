@@ -4,67 +4,61 @@ import './TickerSlider.scss' // Assurez-vous que le chemin du fichier CSS est co
 // Import du JSON avec require
 import companiesObj from '@objs/companiesObj.json'
 
-// Type pour chaque entreprise
-interface Company {
-  name: string
-  symbol: string
-  old: number // Assurez-vous que cette propriété correspond à ce qui est dans companiesObj.json
-  current: number // Assurez-vous que cette propriété correspond à ce qui est dans companiesObj.json
-  percentage: string
-  currency: string // Ajoutez la propriété currency si elle est présente dans vos données JSON
-}
+// Components
+import CompanyName from '@atoms/CompanyName'
+import CompanyIsin from '@atoms/CompanyIsin'
+
+// Types
+import { CompanyType } from '@typage/mainType'
 
 // Fonction pour récupérer et traiter les données des entreprises
-const fetchCompaniesObj = (): Company[] => {
-  // Récupération des entreprises depuis le JSON
-  const companies: Company[] = companiesObj.map((company) => ({
-    name: company.name.toUpperCase(),
-    symbol: company.symbol.toUpperCase(),
-    old: company.prev, // Assurez-vous que prev correspond à l'ancien prix dans votre JSON
-    current: company.current, // Assurez-vous que current correspond au prix actuel dans votre JSON
-    percentage: calculatePercentage(company.prev, company.current), // Ajoutez votre fonction de calcul ici
-    currency: company.currency, // Assurez-vous que currency correspond à la devise dans votre JSON
+const fetchCompaniesObj = (): CompanyType => {
+  const companies: CompanyType = companiesObj.map((company) => ({
+    name: company.name,
+    isin: company.isin,
+    prevPrice: company.prevPrice,
+    currentPrice: company.currentPrice,
+    percentage: calculatePercentage(company.prevPrice, company.currentPrice),
+    currency: company.currency,
   }))
 
   return companies
 }
 
 // Fonction pour calculer le pourcentage
-const calculatePercentage = (oldPrice: number, currentPrice: number): string => {
-  const percentage = ((oldPrice - currentPrice) / currentPrice) * 100
-  return percentage.toFixed(2)
+const calculatePercentage = (oldPrice: number, currentPrice: number): number => {
+  return ((oldPrice - currentPrice) / currentPrice) * 100
 }
 
 // Composant pour afficher chaque entreprise dans le ticker
-const CompaniesTicker: React.FC<{ companies: Company[] }> = ({ companies }) => {
+const CompaniesTicker: React.FC<{ companies: CompanyType }> = ({ companies }) => {
   if (companies.length === 0) {
-    return null; // Si pas d'entreprises, retourne null ou autre message d'attente
+    return null
   }
 
   return (
     <>
       {companies.map((company, i) => (
         <div className="item" key={i}>
-          <span>{company.name}</span>
-          <span>{company.symbol}</span>
+          <CompanyName companyName={company.name} />
+          <CompanyIsin companyIsin={company.isin} />
           <span>
-            {company.current} {company.currency} {/* Assurez-vous que currency est défini */}
+            {company.currentPrice} {company.currency} {/* Assurez-vous que currency est défini */}
           </span>
           {/* Affichage du pourcentage coloré */}
-          <span className={`company-percentage ${parseFloat(company.percentage) > 0 ? 'color-positive' : parseFloat(company.percentage) < 0 ? 'color-negative' : 'color-neutral'}`}>
-            {parseFloat(company.percentage) > 0 ? `+${Math.abs(parseFloat(company.percentage)).toFixed(2)} %` : `${Math.abs(parseFloat(company.percentage)).toFixed(2)} %`}
+          <span className={`company-percentage ${company.percentage > 0 ? 'color-positive' : company.percentage < 0 ? 'color-negative' : 'color-neutral'}`}>
+            {company.percentage > 0 ? `+${Math.abs(company.percentage).toFixed(2)} %` : `${Math.abs(company.percentage).toFixed(2)} %`}
           </span>
         </div>
       ))}
     </>
-  );
-};
-
+  )
+}
 
 // Composant principal du slider de ticker
 const TickerSlider: React.FC = () => {
   // État pour les entreprises
-  const [companies, setCompanies] = useState<Company[]>([])
+  const [companies, setCompanies] = useState<CompanyType>([])
 
   // Effet secondaire pour charger les données des entreprises au montage
   useEffect(() => {

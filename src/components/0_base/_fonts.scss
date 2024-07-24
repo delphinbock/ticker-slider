@@ -1,0 +1,17 @@
+// Font path
+$fontsPath: '/fonts/';
+
+// fanfareticker font
+$fontNameFileFanfareTicker: 'fanfareticker';
+$fontNameFanfareTicker: 'fanfareticker';
+@include declareFontFace($fontsPath, $fontNameFileFanfareTicker, $fontNameFanfareTicker);
+
+// fanfareticker3d font
+$fontNameFileFanfareTicker3d: 'fanfareticker3d';
+$fontNamefontNameFileFanfareTicker3d: 'fanfareticker3d';
+@include declareFontFace($fontsPath, $fontNameFileFanfareTicker3d, $fontNamefontNameFileFanfareTicker3d);
+
+// fanfaretickerbackground font
+$fontNameFileFanfareTickerGround: 'fanfaretickerbackground';
+$fontNameFanfareTickerGroundGround: 'fanfaretickerbackground';
+@include declareFontFace($fontsPath, $fontNameFileFanfareTickerGround, $fontNameFanfareTickerGroundGround);
