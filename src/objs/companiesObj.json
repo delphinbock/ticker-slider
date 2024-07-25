@@ -9,8 +9,8 @@
   {
     "name": "rivian",
     "isin": "rivn",
-    "currentPrice": 172.01,
-    "prevPrice": 160,
+    "currentPrice": 172,
+    "prevPrice": 172,
     "currency": "$"
   },
   {

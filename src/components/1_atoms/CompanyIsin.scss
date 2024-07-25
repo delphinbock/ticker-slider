@@ -1,4 +1,7 @@
 .companyIsin {
-  font-weight: bold;
+  color: $companyIsinColor;
   text-transform: uppercase;
+  text-align: center;
+  display: block;
+  width: 100%;
 }

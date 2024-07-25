@@ -1,17 +1,16 @@
 // React
 import { FC } from "react"
 
-interface CompanyProps {
+// Company
+type CompanyProps = {
   name: string
   isin: string
   prevPrice: number
   currentPrice: number
-  percentage: number
   currency: string
 }
 
 type CompanyType = CompanyProps[]
-
 
 // Company name
 type CompanyNameProps = {
@@ -27,9 +26,53 @@ type CompanyIsinProps = {
 
 type CompanyIsinType = FC<CompanyIsinProps>
 
-// Company symbol
+// Current price
+type CompanyCurrentPriceProps = {
+  companyCurrentPrice: number
+  companyCurrency: string
+}
 
+type CompanyCurrentPriceType = FC<CompanyCurrentPriceProps>
 
+// Current percent
+type CompanyCurrentPercentProps = {
+  companyCurrentPrice: number
+  companyPrevPrice: number
+}
+
+type CompanyCurrentPercentType = FC<CompanyCurrentPercentProps>
+
+// Ticker item
+type TickerItemProps = {
+  companyName: string
+  companyIsin: string
+  companyCurrentPrice: number
+  companyPrevPrice: number
+  companyCurrency: string
+}
+
+type TickerItemType = FC<TickerItemProps>
+
+// Companies ticker
+type CompaniesTickerProps = {
+  companiesArr: CompanyType
+}
+
+type CompaniesTickerType = FC<CompaniesTickerProps>
+
+// Ticker items collection
+type TickerItemsCollectionProps = {
+  companiesArr: CompanyType
+}
+
+type TickerItemsCollectionType = FC<TickerItemsCollectionProps>
+
+// Ticker slider
+type TickerSliderProps = {
+  companiesArr: CompanyType
+}
+
+type TickerSliderType = FC
 
 export {
   CompanyProps,
@@ -37,5 +80,17 @@ export {
   CompanyNameProps,
   CompanyNameType,
   CompanyIsinProps,
-  CompanyIsinType
+  CompanyIsinType,
+  CompanyCurrentPriceProps,
+  CompanyCurrentPriceType,
+  CompanyCurrentPercentProps,
+  CompanyCurrentPercentType,
+  TickerItemProps,
+  TickerItemType,
+  CompaniesTickerProps,
+  CompaniesTickerType,
+  TickerItemsCollectionProps,
+  TickerItemsCollectionType,
+  TickerSliderProps,
+  TickerSliderType
 }

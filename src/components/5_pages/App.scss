@@ -2,9 +2,10 @@ html {
   font-family: 'fanfareticker', -apple-system, sans-serif;
   font-size: 26px;
 
-  // * {
-  //   // font-family: inherit;
-  // }
+  * {
+    font-family: inherit;
+    box-sizing: content-box;
+  }
 
   body {
     background: $bodyBgColor;

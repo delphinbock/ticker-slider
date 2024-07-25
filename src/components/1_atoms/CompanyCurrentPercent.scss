@@ -1,0 +1,18 @@
+.companyCurrentPercent {
+  display: block;
+  width: 100%;
+  text-transform: capitalize;
+  text-align: center;
+
+  &--neutralPercent {
+    color: $companyNeutralPercentColor;
+  }
+
+  &--positivePercent {
+    color: $companyPositivePercentColor;
+  }
+
+  &--negativePercent {
+    color: $companyNegativePercentColor;
+  }
+}

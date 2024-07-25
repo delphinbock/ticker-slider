@@ -1,82 +1,18 @@
-.ticker-wrap {
+.tickerWrapper {
   overflow: hidden;
-  white-space: nowrap;
-  background-color: black;
-  color: white;
-  box-sizing: content-box;
-  max-width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 20px;
-  width: 100%;
-  padding: 10px;
-  z-index: 9999;
-}
-
-.ticker-content {
-  display: inline-block;
-  animation: marquee 40s linear infinite;
-}
-
-.item-collection-1 {
   position: relative;
-  left: 0%;
-  float: left;
-}
+  width: 100%;
+  background: $tickerWrapperBgColor;
+  padding: 10px;
+  z-index: 999;
 
-.item-collection-1 span,
-.item-collection-2 span {
-  display: block;
-  //font-size: 16px;
-  text-align: center;
-  width: 120px;
-  margin: 0px;
-}
+  &_tickerContent {
+    width: 100%;
+    animation: slidingAnimation $tickerContentSpeedSlidingAnimation linear infinite;
 
-.ticker-content:hover {
-  animation-play-state: paused;
-  cursor: pointer;
-}
-
-.item {
-  display: inline-block;
-  width: 130px;
-  vertical-align: top;
-  margin-left: 15px;
-  overflow: hidden;
-}
-
-.item span:first-child,
-.item span:nth-child(2) {
-  font-weight: bold;
-}
-
-@keyframes marquee {
-  0% {
-    transform: translateX(0);
+    &:hover {
+      animation-play-state: paused;
+      cursor: pointer;
+    }
   }
-  100% {
-    transform: translateX(-100%);
-  }
-}
-
-.color-neutral {
-  color: #ffae00;
-}
-
-.color-positive {
-  color: #2cc357;
-  font-weight: normal;
-}
-
-.color-negative {
-  color: #ff0000;
-  font-weight: normal;
-}
-
-.company-percentage {
-  text-transform: capitalize;
-  font-weight: bold;
-  display: block;
-  // font-size: 20px;
 }

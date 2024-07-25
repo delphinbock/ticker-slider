@@ -4,26 +4,18 @@
 // Atoms components
 @import '@atoms/CompanyName';
 @import '@atoms/CompanyIsin';
-// @import '@atoms/AudioElement';
-// @import '@atoms/ErrorDisplay';
-// @import '@atoms/LoadingButton';
-// @import '@atoms/PlayButton';
-// @import '@atoms/RadioFlag';
-// @import '@atoms/RadioLogo';
+@import '@atoms/CompanyCurrentPrice';
+@import '@atoms/CompanyCurrentPercent';
 
 // Molecules components
-// @import '@molecules/PlayControl';
-// @import '@molecules/RadioInfos';
-// @import '@molecules/Timer';
-// @import '@molecules/VolumeControl';
+@import '@molecules/TickerItem';
 
 // Organisms components
-// @import '@organisms/RadioHeader';
-// @import '@organisms/RadioItem';
-// @import '@organisms/RadioList';
+@import '@organisms/CompaniesTicker';
+@import '@organisms/TickerItemsCollection';
 
 // Templates
-// @import '@templates/Player';
+@import '@templates/TickerSlider';
 
 // Pages
 @import '@pages/App';

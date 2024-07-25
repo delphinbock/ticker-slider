@@ -1,4 +1,7 @@
 .companyName {
-  font-weight: bold;
   text-transform: uppercase;
+  text-align: center;
+  color: $companyNameColor;
+  display: block;
+  width: 100%;
 }

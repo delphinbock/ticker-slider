@@ -1,0 +1,14 @@
+.companyCurrentPrice {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 100%;
+
+  span {
+    color: $companyCurrentPrice;
+    display: block;
+    width: auto;
+  }
+}
