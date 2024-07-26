@@ -74,6 +74,12 @@ type TickerSliderProps = {
 
 type TickerSliderType = FC
 
+// Companies mapping
+type CompaniesMapType = () => CompanyType;
+
+// Hook useFetchCompanies
+type UseFetchCompaniesType = () => CompanyType
+
 export {
   CompanyProps,
   CompanyType,
@@ -92,5 +98,7 @@ export {
   TickerItemsCollectionProps,
   TickerItemsCollectionType,
   TickerSliderProps,
-  TickerSliderType
+  TickerSliderType,
+  UseFetchCompaniesType,
+  CompaniesMapType
 }

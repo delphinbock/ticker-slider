@@ -1,7 +1,10 @@
+// React
+import { memo } from 'react'
+
 // Types
 import { CompanyCurrentPercentType } from '@typage/mainType'
 
-const CompanyCurrentPercent: CompanyCurrentPercentType = ({ companyCurrentPrice, companyPrevPrice }) => {
+const CompanyCurrentPercent: CompanyCurrentPercentType = memo(({ companyCurrentPrice, companyPrevPrice }) => {
   // Calculate the percentage
   const companyCurrentPercent = ((companyCurrentPrice - companyPrevPrice) / companyPrevPrice) * 100
 
@@ -24,10 +27,11 @@ const CompanyCurrentPercent: CompanyCurrentPercentType = ({ companyCurrentPrice,
   }
 
   // Format the percentage display text
-  const formattedPercent = `${sign}${Math.abs(companyCurrentPercent).toFixed(2)} %`
+  const absPercentage = Math.abs(companyCurrentPercent).toFixed(2)
+  const formattedPercent = `${sign}${absPercentage} %`
 
   return <span className={`companyCurrentPercent companyCurrentPercent--${percentageClass}`}>{formattedPercent}</span>
-}
+})
 
 // Display the component name in react dev tools profiler
 CompanyCurrentPercent.displayName = 'CompanyCurrentPercent'

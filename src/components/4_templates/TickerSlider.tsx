@@ -1,44 +1,31 @@
 // React
-import { useEffect, useState } from 'react'
+import { lazy, memo, Suspense } from 'react'
 
-// Objs
-import companiesObj from '@objs/companiesObj.json'
+// Hooks
+import useFetchCompanies from '@hooks/useFetchCompanies'
 
 // Components
-import TickerItemsCollection from '@organisms/TickerItemsCollection'
+const TickerItemsCollection = lazy(() => import('@organisms/TickerItemsCollection'))
 
 // Types
-import { CompanyType, TickerSliderType } from '@typage/mainType'
+import { TickerSliderType } from '@typage/mainType'
 
-// Fonction pour récupérer et traiter les données des entreprises
-const fetchCompaniesObj: any = () => {
-  const companiesArr = companiesObj.map((company) => ({
-    name: company.name,
-    isin: company.isin,
-    prevPrice: company.prevPrice,
-    currentPrice: company.currentPrice,
-    currency: company.currency,
-  }))
-
-  return companiesArr
-}
-
-const TickerSlider: TickerSliderType = () => {
-  // States
-  const [companiesArr, setCompaniesArr] = useState<CompanyType>([])
-
-  // Side effects
-  useEffect(() => {
-    setCompaniesArr(fetchCompaniesObj())
-  }, [])
+const TickerSlider: TickerSliderType = memo(() => {
+  // Fetch all companies
+  const companiesArr = useFetchCompanies()
 
   return (
     <div className="tickerWrapper">
       <div className="tickerWrapper_tickerContent">
-        <TickerItemsCollection companiesArr={companiesArr} />
+        <Suspense fallback={<div>Loading...</div>}>
+          <TickerItemsCollection companiesArr={companiesArr} />
+        </Suspense>
       </div>
     </div>
   )
-}
+})
+
+// Display the component name in react dev tools profiler
+TickerSlider.displayName = 'TickerSlider'
 
 export default TickerSlider

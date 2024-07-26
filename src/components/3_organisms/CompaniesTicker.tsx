@@ -1,10 +1,13 @@
+// React
+import { memo } from 'react'
+
 // Component
 import TickerItem from '@molecules/TickerItem'
 
 // Types
 import { CompaniesTickerType } from '@typage/mainType'
 
-const CompaniesTicker: CompaniesTickerType = ({ companiesArr }) => {
+const CompaniesTicker: CompaniesTickerType = memo(({ companiesArr }) => {
   return (
     <>
       {companiesArr.map((company) => (
@@ -19,6 +22,9 @@ const CompaniesTicker: CompaniesTickerType = ({ companiesArr }) => {
       ))}
     </>
   )
-}
+})
+
+// Display the component name in react dev tools profiler
+CompaniesTicker.displayName = 'CompaniesTicker'
 
 export default CompaniesTicker

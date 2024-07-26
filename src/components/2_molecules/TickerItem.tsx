@@ -1,3 +1,6 @@
+// React
+import { memo } from 'react'
+
 // Components
 import CompanyName from '@atoms/CompanyName'
 import CompanyIsin from '@atoms/CompanyIsin'
@@ -8,7 +11,7 @@ import CompanyCurrentPercent from '@atoms/CompanyCurrentPercent'
 import { TickerItemType } from '@typage/mainType'
 
 // Composant TickerItem
-const TickerItem: TickerItemType = ({ companyName, companyIsin, companyCurrentPrice, companyPrevPrice, companyCurrency }) => {
+const TickerItem: TickerItemType = memo(({ companyName, companyIsin, companyCurrentPrice, companyPrevPrice, companyCurrency }) => {
   return (
     <div className="tickerItem">
       {/* Name */}
@@ -24,6 +27,9 @@ const TickerItem: TickerItemType = ({ companyName, companyIsin, companyCurrentPr
       <CompanyCurrentPercent companyCurrentPrice={companyCurrentPrice} companyPrevPrice={companyPrevPrice} />
     </div>
   )
-}
+})
+
+// Display the component name in react dev tools profiler
+TickerItem.displayName = 'TickerItem'
 
 export default TickerItem
