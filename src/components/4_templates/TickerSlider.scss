@@ -7,8 +7,8 @@
   z-index: 999;
 
   &_tickerContent {
-    width: 100%;
-    animation: slidingAnimation $tickerContentSpeedSlidingAnimation linear infinite;
+    //animation: marqueeAnimation $tickerContentSpeedMarqueeAnimation linear infinite;
+    white-space: nowrap;
 
     &:hover {
       animation-play-state: paused;

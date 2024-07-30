@@ -1,4 +1,5 @@
 import { defineConfig } from 'vite'
+
 import react from '@vitejs/plugin-react'
 import path from 'path'
 
@@ -6,7 +7,7 @@ const __filename = import.meta.url
 const __dirname = path.dirname(new URL(__filename).pathname)
 
 export default defineConfig(({ mode }) => {
-  const isProfiling = mode === 'profile';
+  const isProfiling = mode === 'profile'
 
   return {
     plugins: [react()],
@@ -34,5 +35,5 @@ export default defineConfig(({ mode }) => {
         'react-dom$': isProfiling ? path.resolve(__dirname, 'node_modules/react-dom/profiling') : path.resolve(__dirname, 'node_modules/react-dom'),
       }
     },
-  };
-});
+  }
+})
